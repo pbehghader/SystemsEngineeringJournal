@@ -1,0 +1,131 @@
+\section{ADDRESSING NON-TECHNICAL SOURCES OF TECHNICAL DEBT}
+\label{sec:smrf}
+
+Our multi-year, multi-university US DoD Systems Engineering Research Center (SERC) System Qualities Ontology, Tradespace, and Affordability project has held and participated in several industry-government workshops to clarify the relations among their various systems and software quality attributes.  These have led to the stakeholder value-based, means-ends ontology structure shown in Table \ref{tab:SERC_Stakeholder}, which highlights Maintainability as a key Means to three of the four stakeholder-value Ends categories [35].
+The workshops also confirmed the key contribution of Technical Debt to systems and software maintenance costs, and identified that there were a number of non-technical sources of TD, to be summarized in section \ref{subsec:topten}, and addressed via the Systems and Software Maintainability Readiness Framework (SMRF) presented in section \ref{subsec:smrf}.
+
+
+\subsection{Top-10 List of Major Non-Technical Sources of Technical Debt}
+\label{subsec:topten}
+
+The inexorable increase in software demand and the pace of changes in software technology, competition, interdependencies, and sources of vulnerability, will seriously strain the capacity of the available software maintenance labor force.
+Recently, a US industry-government workshop was held to address this challenge and what to do about it.
+A good deal of the discussion was focused on the high cost of software technical debt \cite{6336722}, and on ways to identify it and reduce it more quickly.
+During the discussions, several observations were made that a good many sources of technical debt are non-technical, and that addressing these would likely be cost-effective.
+In response, a portion of the workshop was devoted to identifying and prioritizing these non-technical sources of technical debt.
+
+The working group addressing the non-technical sources of technical debt identified 17 non-trivial, relatively non-overlapping sources.
+The 12 group members were then given 20 points each to distribute across the 17 sources, and the points added up to determine the order of the Top-10.
+Most of the participant distributions of points were relatively flat, but some gave 5-7 points for sources they felt were particularly critical.
+
+Here is the resulting Top-10 list of the primary sources of software process foresight shortfalls causing significant levels of technical debt.
+\begin{enumerate}
+	\item \ul{Separate organizations and budgets for software acquisition and maintenance}.
+	The acquisition organization will tend to over-optimize on its primary responsibility for acquisition cost-effectiveness, leaving the maintenance organization unprepared for cost-effective maintenance.
+	\item \ul{Overconcern with the Voice of the Customer, as in Quality Function Deployment.}
+	\cite{akao1994development} Delighting customers with attractive features often leads to commitments to incompatible and hard-to-maintain capabilities, which could be detected by listening to the Voice of the Maintainer.
+	A good example was the Bank of America's Master Net trust management system.
+	It proposed to excel by including the union of its trust management system customers' wish lists, ending up with 3.5 million lines of code worth of promised capabilities, clearly far beyond what they could produce with their \$22M budget and 9 month schedule.
+	In searching for options, they found Premier Systems, which had produced successful trust management systems for several small banks.
+	Not only was Premier unable to scale its software up to BofA's promises, but also its software ran on Prime computers, which were unacceptable to BofA's software maintenance organization, which only operated IBM mainframe computers.
+	The project was cancelled after 4 years and an \$88 million expenditure \cite{glass1997software}.
+	\item \ul{The Conspiracy of Optimism.}
+	The project sponsors are competing for resources with sponsors of other projects, and will tend to be optimistic about what the project will deliver and how much it will cost.
+	They will often try to get well by outsourcing the development to the lowest cost, technically acceptable bidder.
+	Contractors bidding to perform the project will also tend to be optimistic about what the project will deliver and how much it will cost.
+	A good example is the US Air Force F-22 aircraft.
+	It proposed to deliver 750 aircraft for \$26.2 billion, and when cancelled had delivered 187 aircraft for \$79 billion \cite{haffa2016learning}.
+	\item \ul{Inadequate system engineering resources.}
+	The first organization to be impacted by inadequate budgets and schedules will be system engineering.
+	The result will be exponentially-large amounts of technical debt due to poorly-defined interfaces, unaddressed rainy-day use cases and risks, and premature commitments to hopefully-compatible but actually-incompatible COTS products, cloud services, open-source capabilities, and hopefully-reusable components.
+	The inadequate resources provide no opportunity to develop and review evidence of the feasibility (scalability, compatibility, performance, dependability, maintainability, etc.) of the commitments.
+	A good example identified in the workshop was a space system optimistically costed at \$2 billion.
+	The project budgeted 30\% of the cost or \$600 million to ensure a thorough job of systems engineering.
+	However, the actual cost of the system was \$8 billion, and the \$600 million was only 7.5\% of the cost.
+	This led to incomplete specifications and prototypes, weak evidence of feasibility, undefined interfaces, vague plans, etc., accounting for much of the cost growth.
+	\item \ul{Hasty contracting that focuses on fixed operational requirements.}
+	If budgets and schedules are tight, and the contract does not require delivery of test and debugging support, architectural descriptions, development support and configuration management capabilities, and latest release COTS products, these will not be made available to the maintainers.
+	Even if contracted-for, these may be dropped or minimized as lower-priority needs as compared to operational capabilities.
+	Having a fixed-requirements contract is a source of significant delays, particularly as the pace of change in software-intensive systems continues to accelerate.
+	Another pair of large projects undergoing rapid change identified in the workshop required averages of 27 workdays to close simple one-company change requests; 48 workdays for 2-3 company change requests; and 141 workdays for change requests requiring contract modifications.
+	\item  \ul{CAIV-limited system requirements.}
+	Often, customers' desired capabilities exceed the available conspiracy-of-optimism budgets, and a Cost As Independent Variable (CAIV) exercise is performed to prioritize the capabilities, and to include only the above-the-line capabilities in the Request for Proposals or Statement of Work.
+	This throws away valuable information on the likely sources of future maintenance activity.
+	\item  \ul{Brittle, point-solution architectures.}
+	The lowest-cost, technically-acceptable winning bidder will generally commit to a brittle, point-solution architecture addressing only the capabilities in the Statement of Work, minimizing development costs but again escalating maintenance costs. 
+	\item \ul{The Vicious Circle.}
+	Even when acquisition organizations wish to include the Voice of the Maintainer and invite them to participate in defining a new system, they will often be met with apologies that the maintainers are too busy compensating for the maintainability shortfalls in their current systems caused by their inability to participate in the current-systems' definition.
+	\item \ul{Stovepipe systems.}
+	Having different organizations implement increasingly-interdependent systems leads to numerous clashes in coordinating changes across systems with incompatible internal assumptions, infrastructure commitments, user interfaces, and data structures.
+	Regional and national healthcare systems are just one of many examples.
+	\item \ul{Over-extreme forms of agile development}, such as rejecting architectural descriptions as Big Design Up Front (BDUF) and saying You Aren't Going to Need It (YAGNI).
+	This may be true on small projects where the developers continue into maintenance, but will be disastrous if provided to a different maintenance organization, or when the small project grows into a 50-person team coping with evolving a 500K source lines of code (KSLOC) project \cite{1008006}.
+	More recently, however, organizations are mastering disciplined forms of agile development and continuous delivery, such as Amazon with its new release every 11 seconds or methods such as the Scaled Agile Framework \cite{leffingwell2007scaling}, Kanban \cite{anderson2010kanban}, DevOps \cite{davis2016effective}, and the Jan Bosch incremental Speed, Data, and Ecosystems approach \cite{bosch2017speed}.
+\end{enumerate}
+
+The 7 additional non-technical sources of technical debt received relatively small numbers of votes, but each received at least 3 votes:
+\begin{itemize}
+	\item Choosing lowest-cost, technically acceptable maintenance contractor;
+	\item Delivering systems with no-longer-supported COTS products;
+	\item Easiest-first development problem-report closure;
+	\item High development personnel turnover;
+	\item High requirements volatility;
+	\item Neglecting interoperability challenges;
+	\item Over-optimizing performance via tightly-coupled, speed-optimized components.
+\end{itemize}
+
+\begin{table*}[htbp]
+	\centering
+	\caption{Software-Intensive Systems Maintainability Readiness Framework (SMRF)}
+	\resizebox{\textwidth}{!}{
+		% Table generated by Excel2LaTeX from sheet 'Sheet1'
+		\begin{tabular}{|c|p{18em}|p{18em}|p{16.5em}|}
+			\toprule
+			\multicolumn{1}{|p{2.2em}|}{\textbf{SMR Level}} & \textbf{OpCon, Contracting: Missions, Scenarios, Resources, Incentives} & \textbf{Personnel Capabilities and Participation} & \textbf{Enabling Models, Methods, Processes, and Tools (MMTPs)} \\
+			\midrule
+			9     & 5 years of successful maintenance operations, including outcome based incentives, adaptation to new technologies, missions, and stakeholders. & In addition, creating incentives for continuing effective maintainability. Performance on long-duration projects. & Evidence of improvements in innovative O\&M MPTs based on ongoing O\&M experience. \\
+			\midrule
+			8     & One year of successful maintenance operations, including outcome based incentives, refinements of OpCon. Initial insights from maintenance data collection and analysis (DC\&A). & Stimulating and applying People CMM Level 5 maintainability practices in continuous improvement and innovation such as smart systems, use of multicore processors, and 3-D printing. & Evidence of MPT improvements based on maintenance DC\&A based ongoing refinement, and extensions of ongoing evaluation, initial O\&M MPTs. \\
+			\midrule
+			7     & System passes Maintainability Readiness Review with evidence of viable OpCon, Contracting, Logistics, Resources, Incentives, personnel capabilities, enabling MPTs, outcome-based incentives. & Achieving advanced People CMM Level 4 maintainability capabilities such as empowered work groups, mentoring, quantitative performance management and competency based assets. & Advanced, integrated, tested, and exercised full-LC MBS\&SE MMPTs and Maintainability other-SQ tradespace analyses. \\
+			\midrule
+			6     & Mostly-elaborated maintainability OpCon, with roles, responsibilities, workflows, logistics management plans with budgets, schedules, resources, staffing, infrastructure and enabling MMPT choices, V\&V and review procedures. & Achieving basic People CMM levels 2 and 3 maintainability practices such as maintainability work environment, competency and career development, and performance management especially in such key areas such as V\&V, identification \& reduction of technical debt. & Advanced, integrated, tested full-LC Model-Based Software \& Systems (MBS\&SE) MPTs and Maintainability-other-SQ tradespace analysis tools identified for use, and being individually used and integrated. \\
+			\midrule
+			5     & Convergence, involvement of main maintainability success-critical stakeholders. Some maintainability use cases defined. Rough maintainability OpCon, other SCSHs, staffing, resource estimates. Preferred maintenance organization option, incentive structures determined. & In addition, independent maintainability experts participate in project evidence-based decision reviews, identify potential maintainability conflicts with other SQs. Selected developers and maintainers work out skills mixes, collaboration options. & Advanced full-lifecycle (full-LC) O\&M MMPTs and SW/SE MMPTs identified for use. Basic MPTs for tradespace analysis among maintainability \& other SQs, including TCO being used. \\
+			\midrule
+			4     & Artifacts focused on missions. Primary maintenance options determined, Early involvement of maintainability SCSHs in elaborating and evaluating maintenance-organization options. & Critical mass of maintainability SysEs with mission SysE capability, coverage of full Maintainability SysE skills areas, representation of maintainability SCSH organizations. & Advanced O\&M MMPT capabilities identified for use: Model-Based SW/SE, TOC analysis support. Basic O\&M MMPT capabilities for modification, repair and V\&V: some initial use. \\
+			\midrule
+			3     & Elaboration of mission Operational Concept (OpCon), Architectural views, life-cycle cost estimation. Key mission, O\&M, success-critical stakeholders (SCSHs) identified, some maintainability options explored. & O\&M success-critical stakeholders provide critical mass of maintainability-capable SysEs. Identification of additional Maintainability-critical stakeholders. & Basic O\&M MMPT capabilities identified for use, particularly for OpCon, Architecture, and Total Ownership Cost (TOC) analysis. Some exploratory initial use. \\
+			\midrule
+			2     & Mission evolution directions and maintainability implications explored. Some mission use cases defined, some O\&M options explored. & Highly maintainability-capable Systems Engineers (SysEs) included in Early SysE team. & Initial exploration of O\&M MPT options. \\
+			\midrule
+			1     & Focus on mission opportunities, needs. Maintainability not yet considered. & Awareness of needs for early expertise for maintainability. concurrent engineering, O\&M integration, Life Cycle cost estimation. & Focus on O\&M MPT options considered. \\
+			\bottomrule
+		\end{tabular}%
+	}
+	\label{tab:smrf}%
+\end{table*}%
+
+\subsection{A Proposed Software Maintenance Readiness Framework (SMRF)}
+\label{subsec:smrf}
+Several classes of organizations generally do not have serious problems with high maintenance cost for their more diverse and dynamic software-intensive systems. Some have developers who continue with the project through its life cycle. Some whose business or mission depends critically on high levels of service employ and support highly-capable in-house maintenance organizations.
+
+Classes of organizations most needing to reduce high maintenance costs for their more diverse and dynamic software-intensive systems are those in which Research and Development (R\&D) and Operations and Maintenance (O\&M) are separately funded and managed; organizations which outsource software maintenance to external companies; and organizations with in-house software maintenance centers that receive and maintain software developed either elsewhere in the organization or externally. For such organizations, three of the primary symptoms of high maintenance costs are (1) life cycle management shortfalls; (2) maintenance personnel shortfalls; and (3) maintenance methods, processes and tools (MPT) shortfalls.
+
+
+
+The concepts of Technology Readiness Levels (TRLs) \cite{dod2011technology}, Manufacturing Readiness Levels (MRLs)\cite{cundiff2003manufacturing}, and System Readiness Levels (SRLs)\cite{sauser2006trl,sauser2007system}, have been highly useful in improving the readiness of systems to be fielded and operated.  Given the discussions above on the non-technical sources of Technical Debt, it appears worthwhile to develop and use a similar Software Maintainability Readiness Framework (SMRF) to improve future systems' continuing operational readiness and Total Cost of Ownership (TCO). Most likely, its content would also help on hardware-intensive systems or cyber-physical-human systems.
+
+
+
+
+Table \ref{tab:smrf} provides our current SMRF. Its columns are organized around the three major maintainability readiness shortfall categories of Life Cycle Management, Maintenance Personnel, and Maintenance MPTs. In general, one would expect a major defense acquisition project to be at SMRF 4 at its Materiel Development Decision milestone; at SMRF 5 at its Milestone A, also called its Architecture Alternatives Analysis Review; SMRF 6 at its Milestone B, also called its Preliminary Design Review; and SMRF 7 at its completion of its Operational Readiness Review. Smaller less-critical systems would be expected to be at least at SMRF 3 at its Materiel Development Decision milestone and at SMRF 4 at its Milestone A. Note that the SMRF framework emphasizes outcome-based maintenance incentives such as with Performance-Based Logistics or Vested Outsourcing \cite{vitasek2013vested} at SMRF 7, and maintainability data collection and analysis (DC\&A) at SMRF 8. We are also conducting empirical studies of software maintainability metrics via analyses of open-source software systems, as discussed in Section \ref{sec:squaad}.
+
+
+%\ul{Over-extreme forms of agile development} have  had  difficulties with scalability as in \cite{1008006}, with security-critical and safety-critical systems, and with bridging incompatible infrastructures in multi-institution medical and crisis management systems. Some organizations have had significant successes in developing and evolving complex systems with DevOps and Continuous Delivery approaches, but generally with very highly skilled teams and enterprise-controlled interfaces and infrastructure. Chen's paper \cite{7006384}, "Continuous Delivery: Huge Benefits, but Challenges Too," is a good summary of the benefits and challenges.
+
+\subsection{Early Evaluation Results}
+The SMRF has been used on over 10 milestone reviews, generally resulting in improvements in maintainability planning, maintainer participation in project activities and reviews, and identification  of methods, processes, and tools needed by maintainers such as  for requirements traceability, architecture definition and evolution, configuration management, problem diagnostics, technical debt analysis, and regression testing. At this point, a major company organization is preparing to apply it to its projects.
+
+Other evaluation results have included the evaluation of projects 
+having high technical debt in both development and maintenance, and development of parametric models that relate the sources of technical debt to their ultimate magnitude. These include calibration of a model to evaluate the return on investments in maintainability based on data from two TRW projects that did not make the investments and one that did: CCPDS-R, described in \cite{royce1998software}. Another corroborative result is the analysis of exponential growth of technical debt due to systems engineering underinvestment experienced across the 161 projects involved in the calibration of the COCOMO II model's Architecture and Risk Resolution parameter \cite{boehm2000software}. The Vicious Circle phenomenon was exhibited in major architecture reviews of two large government projects. One project fortunately had two people with maintenance experience on the review team, who were able to provide maintainability recommendations that helped the project avoid significant maintenance costs. The other maintenance project did not have such people, and its maintenance organization experienced extensive workload growth and an inability to quickly and cost-effectively respond to needed changes. 

@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A template for Wiley article submissions.
+% Developed by Overleaf. 
+%
+% Please note that whilst this template provides a 
+% preview of the typeset manuscript for submission, it 
+% will not necessarily be the final publication layout.
+%
+% Usage notes:
+% The "blind" option will make anonymous all author, affiliation, correspondence and funding information.
+% Use "num-refs" option for numerical citation and references style.
+% Use "alpha-refs" option for author-year citation and references style.
+
+\documentclass[alpha-refs]{wiley-article}
+% \documentclass[blind,num-refs]{wiley-article}
+
+
+\usepackage{booktabs} % For formal tables
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usetikzlibrary{trees} % this is to allow the fork right path
+\usepackage{soul}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[skip=5pt]{caption}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\graphicspath{ {images/} }
+
+% Add additional packages here if required
+\usepackage{siunitx}
+
+% Update article type if known
+\papertype{Original Article}
+% Include section in journal if known, otherwise delete
+\paperfield{Journal Section}
+
+\title{Anticipatory Development Processes for Reducing Total Ownership Costs}
+
+% List abbreviations here, if any. Please note that it is preferred that abbreviations be defined at the first instance they appear in the text, rather than creating an abbreviations list.
+%\abbrevs{ABC, a black cat; DEF, doesn't ever fret; GHI, goes home immediately.}
+
+% Include full author names and degrees, when required by the journal.
+% Use the \authfn to add symbols for additional footnotes and present addresses, if any. Usually start with 1 for notes about author contributions; then continuing with 2 etc if any author has a different present address.
+%\author[1\authfn{1}]{Author One PhD}
+%\author[2\authfn{1}]{Author A.~Two MD}
+%\author[2\authfn{2}]{Author Three PhD}
+%\author[2]{Author B.~Four}
+
+\author[1]{Barry Boehm}
+\author[1]{Pooyan Behnamghader}
+
+%\contrib[\authfn{1}]{Equally contributing authors.}
+
+% Include full affiliation details for all authors
+%\affil[1]{Department, Institution, City, State or Province, Postal Code, Country}
+%\affil[2]{Department, Institution, City, State or Province, Postal Code, Country}
+\affil[1]{Computer Science Deparment, University of Southern California, Los Angeles, California, 90007, USA}
+
+%\corraddress{Author One PhD, Department, Institution, City, State or Province, Postal Code, Country}
+%\corremail{correspondingauthor@email.com}
+\corraddress{Barry Boehm, Computer Science Department, University of Southern California, Los Angeles, California, 90007, USA}
+\corremail{boehm@usc.edu}
+
+%\presentadd[\authfn{2}]{Department, Institution, City, State or Province, Postal Code, Country}
+\presentadd[\authfn{2}]{Department of Computer Science, University of Southern California, Los Angeles, California, 90007, USA}
+
+\fundinginfo{This material is based upon work supported in part by the U.S. Department of Defense through the Systems Engineering Research Center (SERC) under Contract H98230-08-D-0171. SERC is a federally funded University Affiliated Research Center managed by Stevens Institute of Technology. It was also supported by the National Science Foundation grant CMMI-1408909, Developing a Constructive Logic-Based Theory of Value-Based Systems Engineering.}
+
+% Include the name of the author that should appear in the running header
+\runningauthor{B. Boehm et al.}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Many systems and software processes overfocus on getting a project and product from an initial set of requirements to an initial operational capability (IOC).  Examples are most waterfall and V models.  Projects following such processes may pass acceptance tests for functionality and performance, but may leave the product with serious maintainability shortfalls.  Many agile processes focus on users' initial usage priorities, but often make development commitments for earlier needs that are incompatible with achieving later critical needs (e.g., security, safety).  Incremental development process models can do better, but often later increments may find that the earlier increments have not prepared them for ease of modification and repair.  Besides increasing total ownership costs (TOCs), long mean times to repair result in long downtimes, which can be critical to an organization's income and reputation.  Further, many of these shortfalls take the form of Technical Debt (TD), in that the later they are fixed, the more expensive will be the fixes. 
+%This is one of the main reasons that organizations spend around 75\% of their software funds on post-delivery maintenance.
+
+This paper summarizes three process frameworks and tools providing more anticipatory ways to improve systems and software maintainability and life-cycle cost-effectiveness.  The first framework is an Opportunity Tree for identifying and anticipating such ways. 
+The second framework (SQUAAD) is a toolset for tracking a software project's incremental code commits, and analyzing and visualizing each commit's incremental and cumulative TD.
+%, using several sources of TD analysis. 
+The third framework is a System and Software Maintenance Readiness Framework (SMRF), that identifies needed software maintenance readiness levels at development decision reviews, similar to the Technology Readiness Levels framework.
+%It addresses three components of maintenance readiness: management; personnel; and methods, processes, and tools (MPTs).
+
+
+% Please include a maximum of seven keywords
+\keywords{Software Engineering, Software Maintainability, Software Process, Software Life Cycle Costs, Software Development}
+\end{abstract}
+
+
+\input{introduction.tex}
+\input{MOT.tex}
+\input{squaad.tex}
+\input{SMRF.tex}
+\input{conclusions.tex}
+
+%\input{extra-original.tex}
+
+
+
+
+% Submissions are not required to reflect the precise reference formatting of the journal (use of italics, bold etc.), however it is important that all key elements of each reference are included.
+\bibliography{main}
+
+%\input{Architecture.tex}
+%\input{Empirical-Studies.tex}
+
+%\begin{biography}[example-image-1x1]{A.~One}
+%Please check with the journal's author guidelines whether author biographies are required. They are usually only included for review-type articles, and typically require photos and brief biographies (up to 75 words) for each author.
+%\bigskip
+%\bigskip
+%\end{biography}
+
+%\graphicalabstract{example-image-1x1}{Please check the journal's author guildines for whether a graphical abstract, key points, new findings, or other items are required for display in the Table of Contents.}
+
+\end{document}
