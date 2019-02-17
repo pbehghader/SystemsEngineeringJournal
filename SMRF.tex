@@ -18,24 +18,24 @@ The working group addressing the non-technical sources of technical debt identif
 The 12 group members were then given 20 points each to distribute across the 17 sources, and the points added up to determine the order of the Top-10.
 Most of the participant distributions of points were relatively flat, but some gave 5-7 points for sources they felt were particularly critical.
 
-Here is the resulting Top-10 list of the primary sources of software process foresight shortfalls causing significant levels of technical debt.
+Here is the resulting Top-10 list of the primary sources of software process foresight shortfalls causing significant levels of technical debt, along with their point scores.
 \begin{enumerate}
-	\item \ul{Separate organizations and budgets for software acquisition and maintenance}.
+	\item \ul{Separate organizations and budgets for software acquisition and maintenance (34 points)}.
 	The acquisition organization will tend to over-optimize on its primary responsibility for acquisition cost-effectiveness, leaving the maintenance organization unprepared for cost-effective maintenance.
-	\item \ul{Overconcern with the Voice of the Customer, as in Quality Function Deployment.}
+	\item \ul{Overconcern with the Voice of the Customer, as in Quality Function Deployment (31).}
 	\cite{akao1994development} Delighting customers with attractive features often leads to commitments to incompatible and hard-to-maintain capabilities, which could be detected by listening to the Voice of the Maintainer.
 	A good example was the Bank of America's Master Net trust management system.
 	It proposed to excel by including the union of its trust management system customers' wish lists, ending up with 3.5 million lines of code worth of promised capabilities, clearly far beyond what they could produce with their \$22M budget and 9 month schedule.
 	In searching for options, they found Premier Systems, which had produced successful trust management systems for several small banks.
 	Not only was Premier unable to scale its software up to BofA's promises, but also its software ran on Prime computers, which were unacceptable to BofA's software maintenance organization, which only operated IBM mainframe computers.
 	The project was cancelled after 4 years and an \$88 million expenditure \cite{glass1997software}.
-	\item \ul{The Conspiracy of Optimism.}
+	\item \ul{The Conspiracy of Optimism (28).}
 	The project sponsors are competing for resources with sponsors of other projects, and will tend to be optimistic about what the project will deliver and how much it will cost.
 	They will often try to get well by outsourcing the development to the lowest cost, technically acceptable bidder.
 	Contractors bidding to perform the project will also tend to be optimistic about what the project will deliver and how much it will cost.
 	A good example is the US Air Force F-22 aircraft.
 	It proposed to deliver 750 aircraft for \$26.2 billion, and when cancelled had delivered 187 aircraft for \$79 billion \cite{haffa2016learning}.
-	\item \ul{Inadequate system engineering resources.}
+	\item \ul{Inadequate system engineering resources (21).}
 	The first organization to be impacted by inadequate budgets and schedules will be system engineering.
 	The result will be exponentially-large amounts of technical debt due to poorly-defined interfaces, unaddressed rainy-day use cases and risks, and premature commitments to hopefully-compatible but actually-incompatible COTS products, cloud services, open-source capabilities, and hopefully-reusable components.
 	The inadequate resources provide no opportunity to develop and review evidence of the feasibility (scalability, compatibility, performance, dependability, maintainability, etc.) of the commitments.
@@ -43,35 +43,35 @@ Here is the resulting Top-10 list of the primary sources of software process for
 	The project budgeted 30\% of the cost or \$600 million to ensure a thorough job of systems engineering.
 	However, the actual cost of the system was \$8 billion, and the \$600 million was only 7.5\% of the cost.
 	This led to incomplete specifications and prototypes, weak evidence of feasibility, undefined interfaces, vague plans, etc., accounting for much of the cost growth.
-	\item \ul{Hasty contracting that focuses on fixed operational requirements.}
+	\item \ul{Hasty contracting that focuses on fixed operational requirements (21).}
 	If budgets and schedules are tight, and the contract does not require delivery of test and debugging support, architectural descriptions, development support and configuration management capabilities, and latest release COTS products, these will not be made available to the maintainers.
 	Even if contracted-for, these may be dropped or minimized as lower-priority needs as compared to operational capabilities.
 	Having a fixed-requirements contract is a source of significant delays, particularly as the pace of change in software-intensive systems continues to accelerate.
 	Another pair of large projects undergoing rapid change identified in the workshop required averages of 27 workdays to close simple one-company change requests; 48 workdays for 2-3 company change requests; and 141 workdays for change requests requiring contract modifications.
-	\item  \ul{CAIV-limited system requirements.}
+	\item  \ul{CAIV-limited system requirements (20).}
 	Often, customers' desired capabilities exceed the available conspiracy-of-optimism budgets, and a Cost As Independent Variable (CAIV) exercise is performed to prioritize the capabilities, and to include only the above-the-line capabilities in the Request for Proposals or Statement of Work.
 	This throws away valuable information on the likely sources of future maintenance activity.
-	\item  \ul{Brittle, point-solution architectures.}
+	\item  \ul{Brittle, point-solution architectures (18).}
 	The lowest-cost, technically-acceptable winning bidder will generally commit to a brittle, point-solution architecture addressing only the capabilities in the Statement of Work, minimizing development costs but again escalating maintenance costs. 
-	\item \ul{The Vicious Circle.}
+	\item \ul{The Vicious Circle (15).}
 	Even when acquisition organizations wish to include the Voice of the Maintainer and invite them to participate in defining a new system, they will often be met with apologies that the maintainers are too busy compensating for the maintainability shortfalls in their current systems caused by their inability to participate in the current-systems' definition.
-	\item \ul{Stovepipe systems.}
+	\item \ul{Stovepipe systems (12).}
 	Having different organizations implement increasingly-interdependent systems leads to numerous clashes in coordinating changes across systems with incompatible internal assumptions, infrastructure commitments, user interfaces, and data structures.
 	Regional and national healthcare systems are just one of many examples.
-	\item \ul{Over-extreme forms of agile development}, such as rejecting architectural descriptions as Big Design Up Front (BDUF) and saying You Aren't Going to Need It (YAGNI).
+	\item \ul{ Over-extreme forms of agile development (10)}, such as rejecting architectural descriptions as Big Design Up Front (BDUF) and saying You Aren't Going to Need It (YAGNI).
 	This may be true on small projects where the developers continue into maintenance, but will be disastrous if provided to a different maintenance organization, or when the small project grows into a 50-person team coping with evolving a 500K source lines of code (KSLOC) project \cite{1008006}.
 	More recently, however, organizations are mastering disciplined forms of agile development and continuous delivery, such as Amazon with its new release every 11 seconds or methods such as the Scaled Agile Framework \cite{leffingwell2007scaling}, Kanban \cite{anderson2010kanban}, DevOps \cite{davis2016effective}, and the Jan Bosch incremental Speed, Data, and Ecosystems approach \cite{bosch2017speed}.
 \end{enumerate}
 
 The 7 additional non-technical sources of technical debt received relatively small numbers of votes, but each received at least 3 votes:
 \begin{itemize}
-	\item Choosing lowest-cost, technically acceptable maintenance contractor;
-	\item Delivering systems with no-longer-supported COTS products;
-	\item Easiest-first development problem-report closure;
-	\item High development personnel turnover;
-	\item High requirements volatility;
-	\item Neglecting interoperability challenges;
-	\item Over-optimizing performance via tightly-coupled, speed-optimized components.
+	\item Choosing lowest-cost, technically acceptable maintenance contractor (6);
+	\item Delivering systems with no-longer-supported COTS products (5);
+	\item Easiest-first development problem-report closure (4);
+	\item High development personnel turnover (4);
+	\item High requirements volatility (3);
+	\item Neglecting interoperability challenges (3);
+	\item Over-optimizing performance via tightly-coupled, speed-optimized components (3).
 \end{itemize}
 
 \begin{table*}[htbp]
@@ -110,7 +110,10 @@ The 7 additional non-technical sources of technical debt received relatively sma
 \label{subsec:smrf}
 Several classes of organizations generally do not have serious problems with high maintenance cost for their more diverse and dynamic software-intensive systems. Some have developers who continue with the project through its life cycle. Some whose business or mission depends critically on high levels of service employ and support highly-capable in-house maintenance organizations.
 
-Classes of organizations most needing to reduce high maintenance costs for their more diverse and dynamic software-intensive systems are those in which Research and Development (R\&D) and Operations and Maintenance (O\&M) are separately funded and managed; organizations which outsource software maintenance to external companies; and organizations with in-house software maintenance centers that receive and maintain software developed either elsewhere in the organization or externally. For such organizations, three of the primary symptoms of high maintenance costs are (1) life cycle management shortfalls; (2) maintenance personnel shortfalls; and (3) maintenance methods, processes and tools (MPT) shortfalls.
+Classes of organizations most needing to reduce high maintenance costs for their more diverse and dynamic software-intensive systems are those in which Research and Development (R\&D) and Operations and Maintenance (O\&M) are separately funded and managed; organizations which outsource software maintenance to external companies; and organizations with in-house software maintenance centers that receive and maintain software developed either elsewhere in the organization or externally. For such organizations, three of the primary symptoms of high maintenance costs
+%are
+identified in the workshop above were
+(1) life cycle management shortfalls; (2) maintenance personnel shortfalls; and (3) maintenance methods, processes and tools (MPT) shortfalls.
 
 
 
@@ -119,13 +122,19 @@ The concepts of Technology Readiness Levels (TRLs) \cite{dod2011technology}, Man
 
 
 
-Table \ref{tab:smrf} provides our current SMRF. Its columns are organized around the three major maintainability readiness shortfall categories of Life Cycle Management, Maintenance Personnel, and Maintenance MPTs. In general, one would expect a major defense acquisition project to be at SMRF 4 at its Materiel Development Decision milestone; at SMRF 5 at its Milestone A, also called its Architecture Alternatives Analysis Review; SMRF 6 at its Milestone B, also called its Preliminary Design Review; and SMRF 7 at its completion of its Operational Readiness Review. Smaller less-critical systems would be expected to be at least at SMRF 3 at its Materiel Development Decision milestone and at SMRF 4 at its Milestone A. Note that the SMRF framework emphasizes outcome-based maintenance incentives such as with Performance-Based Logistics or Vested Outsourcing \cite{vitasek2013vested} at SMRF 7, and maintainability data collection and analysis (DC\&A) at SMRF 8. We are also conducting empirical studies of software maintainability metrics via analyses of open-source software systems, as discussed in Section \ref{sec:squaad}.
+Table \ref{tab:smrf} provides our current SMRF. Its columns are organized around the three major maintainability readiness shortfall categories of Life Cycle Management, Maintenance Personnel, and Maintenance MPTs. In general, one would expect a major defense acquisition project to be at SMRF 4 at its Materiel Development Decision milestone; at SMRF 5 at its Milestone A, also called its Architecture Alternatives Analysis Review; SMRF 6 at its Milestone B, also called its Preliminary Design Review; and SMRF 7 at its completion of its Operational Readiness Review. Smaller less-critical systems would be expected to be at least at SMRF 3 at its Materiel Development Decision milestone and at SMRF 4 at its Milestone A. Note that the SMRF framework emphasizes outcome-based maintenance incentives such as with Performance-Based Logistics or Vested Outsourcing \cite{vitasek2013vested} at SMRF 7, and maintainability data collection and analysis (DC\&A) at SMRF 8.
+%We are also conducting empirical studies of software maintainability metrics via analyses of open-source software systems, as discussed in Section \ref{sec:squaad}.
 
 
 %\ul{Over-extreme forms of agile development} have  had  difficulties with scalability as in \cite{1008006}, with security-critical and safety-critical systems, and with bridging incompatible infrastructures in multi-institution medical and crisis management systems. Some organizations have had significant successes in developing and evolving complex systems with DevOps and Continuous Delivery approaches, but generally with very highly skilled teams and enterprise-controlled interfaces and infrastructure. Chen's paper \cite{7006384}, "Continuous Delivery: Huge Benefits, but Challenges Too," is a good summary of the benefits and challenges.
 
 \subsection{Early Evaluation Results}
 The SMRF has been used on over 10 milestone reviews, generally resulting in improvements in maintainability planning, maintainer participation in project activities and reviews, and identification  of methods, processes, and tools needed by maintainers such as  for requirements traceability, architecture definition and evolution, configuration management, problem diagnostics, technical debt analysis, and regression testing. At this point, a major company organization is preparing to apply it to its projects.
+As one example, one fairly large project doing a Milestone B Preliminary Design review (level 6), was found to be at Level 4 in Maintainability Planning and Maintainability Personnel Capabilities, and at Level 5 in Enabling Models, Methods, Processes, and Tools. This led to a number of corrective actions to become close to Level 7 by the time of transition to its maintenance organization.
+
+There are some process standards that address these concerns, such as ISO/IEC 24748-1, “Systems and Software Engineering – Life Cycle Management.” Its sections 4.5, Utilization stage, and 4.6, Support stage, both say “It is presumed that the (supporting) organization has available the facilities, equipment, tools, processes, procedures, trained personnel and instruction manuals.” Its section 4.3.3 (e) identifies evidence of the systems supportability as a delivery outcome. However, these objectives are often minimized, a situation not despised by its Section 3.3.1. b), stating that the various processes should be “Loosely coupled, meaning that the number of interfaces among the processes is kept to a minimum.”
+\cite{ISOICETR247481}
+
 
 Other evaluation results have included the evaluation of projects 
 having high technical debt in both development and maintenance, and development of parametric models that relate the sources of technical debt to their ultimate magnitude. These include calibration of a model to evaluate the return on investments in maintainability based on data from two TRW projects that did not make the investments and one that did: CCPDS-R, described in \cite{royce1998software}. Another corroborative result is the analysis of exponential growth of technical debt due to systems engineering underinvestment experienced across the 161 projects involved in the calibration of the COCOMO II model's Architecture and Risk Resolution parameter \cite{boehm2000software}. The Vicious Circle phenomenon was exhibited in major architecture reviews of two large government projects. One project fortunately had two people with maintenance experience on the review team, who were able to provide maintainability recommendations that helped the project avoid significant maintenance costs. The other maintenance project did not have such people, and its maintenance organization experienced extensive workload growth and an inability to quickly and cost-effectively respond to needed changes. 
