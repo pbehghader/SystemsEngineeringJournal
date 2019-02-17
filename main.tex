@@ -38,7 +38,7 @@
 % Include section in journal if known, otherwise delete
 \paperfield{Journal Section}
 
-\title{Anticipatory Development Processes for Reducing Total Ownership Costs}
+\title{Anticipatory Development Processes for Reducing Total Ownership Costs and Schedules}
 
 % List abbreviations here, if any. Please note that it is preferred that abbreviations be defined at the first instance they appear in the text, rather than creating an abbreviations list.
 %\abbrevs{ABC, a black cat; DEF, doesn't ever fret; GHI, goes home immediately.}
@@ -78,8 +78,12 @@
 \maketitle
 
 \begin{abstract}
-Many systems and software processes overfocus on getting a project and product from an initial set of requirements to an initial operational capability (IOC).  Examples are most waterfall and V models.  Projects following such processes may pass acceptance tests for functionality and performance, but may leave the product with serious maintainability shortfalls.  Many agile processes focus on users' initial usage priorities, but often make development commitments for earlier needs that are incompatible with achieving later critical needs (e.g., security, safety).  Incremental development process models can do better, but often later increments may find that the earlier increments have not prepared them for ease of modification and repair.  Besides increasing total ownership costs (TOCs), long mean times to repair result in long downtimes, which can be critical to an organization's income and reputation.  Further, many of these shortfalls take the form of Technical Debt (TD), in that the later they are fixed, the more expensive will be the fixes. 
+Many systems and software processes overfocus on getting a project and product from an initial set of requirements to an initial operational capability (IOC).  Examples are most waterfall and V models.  Projects following such processes may pass acceptance tests for functionality and performance, but may leave the product with serious maintainability shortfalls.  Many agile processes focus on users' initial usage priorities, but often make development commitments for earlier needs that are incompatible with achieving later critical needs (e.g., security, safety).  Incremental development process models can do better, but often later increments may find that the earlier increments have not prepared them for ease of modification and repair.  Besides increasing total ownership costs (TOCs), long mean times to repair result in long downtimes, which can be critical to an organization's income and reputation.  Further, many of these shortfalls take the form of Technical Debt (TD), in that the later they are fixed, the more
+slow and 
+expensive will be the fixes. 
 %This is one of the main reasons that organizations spend around 75\% of their software funds on post-delivery maintenance.
+
+More recently, both commercial and defense organizations have found it competitively critical to perform continuous development \& delivery, or DevOps, involving significant changes in preparing for post-IOC evolution, as recommended in \cite{DefenseScienceBoard}.
 
 This paper summarizes three process frameworks and tools providing more anticipatory ways to improve systems and software maintainability and life-cycle cost-effectiveness.  The first framework is an Opportunity Tree for identifying and anticipating such ways. 
 The second framework (SQUAAD) is a toolset for tracking a software project's incremental code commits, and analyzing and visualizing each commit's incremental and cumulative TD.
