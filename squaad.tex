@@ -7,16 +7,18 @@ One way to improve software maintainability is to produce clean code while chang
 Prior research has been focusing on the analysis of official releases of software to understand how its code quality evolves \cite{PINTO201559,tu2000evolution,ganpati2012comparative,d2008analysing,le2015empirical}.
 This approach gives an insight on change in code quality over the major milestones of software development, rather than how code quality evolves during software development process. 
 For example, a developer may unknowingly increase the amount of technical debt over a few commits. If that debt is not addressed quickly, it can impose extra cost.
-It gets even worse, if she leaves the team without paying that debt.
+It gets even worse, if they leave the team without paying that debt.
 In another example, a developer may simply commit broken code to the repository.
 This will break the code for other contributors and slows down the development.
 It also causes the unavailability of byte-code for that commit in a post-development analysis.
-Since software developers do not ship uncompiled code, this detail may not be revealed in that coarse-grained analysis. 
+Since software developers do not ship uncompilable code in official releases, this detail may not be revealed in that coarse-grained analysis. 
 
 Our approach to understand software quality evolution is not limited to study the official releases but to take a step further by analyzing the state of the software after each commit.
 For example, our study on the evolution history of  68 open-source software systems shows from one release to the next one, software contains fewer lines of code, classes, code smells, and security vulnerabilities in 8\%, 4\%, 14\%, and 6\% of times.
 However, from one revision (produced by a commit) to the next one, these ratios are 18\%($\uparrow$), 3\%($\downarrow$), 17\%($\uparrow$), and 2\%($\downarrow$).
-Analyzing the impact of each commit on software quality can reveal a wealth of information because it holds details of every stage in the software evolution, such as the time of each change and who made the change.
+%Analyzing the impact of each commit on software quality can reveal a wealth of information because it holds details of every stage in the software evolution, such as the time of each change and who made the change.
+Analyzing the impact of each commit on software quality can reveal a wealth of information because commits carry fine-grained data on every stage of software evolution, such as the author, the time, and the intent (i.e., commit message) of change.
+
 
 Over the past couple of years, multiple tools and techniques are introduced to study software evolution by commit-level \cite{Tufano2017TSE,Dyer2015TOSEM,diamantopoulos2016qualboa,Tiwari2017msr,PINTO201559,gousios2014lean,Rozenberg2016MSR,Kaur2018,Sokol2013SCAM,Trautsch2017,Trautsch:2016:APE:2901739.2901753}.
 Some of them do not run analysis on source code \cite{gousios2014lean,Rozenberg2016MSR}. 
@@ -88,14 +90,17 @@ For example,
 one of our recent maintainability trends analysis \cite{Behnamghader2017qrs} involves a total of 19,580 examined revisions from 38 Apache-family systems across a timespan from January 2002 through March 2017, comprising 586 MSLOC.
 In this analysis, to obtain software quality, we used three widely-used open-source static analysis tools: FindBugs, PMD, and SonarQube.
 We selected a subset of quality attributes related to size (basic), code quality, and security.
-We found that on average, 2\% of the impactful  commits are  not compilable. We qualitatively investigated when, how, and why developers commit uncompilable code. Our results suggest that the impactful commits have different impact on the software quality metrics. We found that different quality attributes may change even if the code count does not change.
+We found that on average, 2\% of impactful commits break the compilation.
+We qualitatively investigated when, how, and why developers break the compilation and introduced a guideline for preventing developers from committing uncompilable code.
+%Our results suggest that the impactful commits have different impact on the software quality metrics.
+We found that different quality attributes may change even if the size (i.e., code count) of the software does not change.
 We calculated the probability for a metric to change while another one is constant based on the collected data.
-Our results also show that although the security metrics change less frequently, it is crucial to utilize them as they can reveal the introduction of different kinds of security problems.
+%Our results also show that although the security metrics change less frequently, it is crucial to utilize them as they can reveal the introduction of different kinds of security problems.
+Our result showed that employing multiple security metrics together can reveal points where security problems are introduced.
 
-In a follow up work \cite{Behnamghader2018esem}, we extended
-%the work of \cite{Behnamghader2017qrs}
-our original dataset
-to include revisions committed in 2017/18 of those 38 Apache systems, as well as 30 new open-source systems from Google and Netflix, comprising a total of 37838 distinct revisions and more than 1.5 billion lines of code.
+%In a follow up work , we extended our original dataset to include revisions committed in 2017/18 of those 38 Apache systems, as well as 30 new open-source systems from Google and Netflix, comprising a total of 37838 distinct revisions and more than 1.5 billion lines of code.
+In a follow-up study \cite{Behnamghader2018esem}, we extended our original dataset to include 30 new subject systems from Google and Netflix, as well as revisions committed in 2017 and 2018 of 38 Apache systems of the original dataset.
+The extended dataset comprises more than 37k distinct software revisions and more than 1.5 billion lines of code.
 We replicated the analysis mentioned above on the new dataset and extended it to reach the maximum commit compilability (97.7\% for Apache, 99.0\% for Google, and 93.9\% for Netflix) and identify all uncompilable commits that are caused by a developer's fault.
 We quantitatively analyzed the reasons for introducing compile errors and proposed a model to detect the uncompilable commits in a post-development analysis based on the meta-date of the commits (i.e., time, message, and committer) and without considering code artifacts.
 Then we analyzed all compilable commits to understand the difference between affiliated and external developers of each organization in terms of impacting different quality attributes. 
