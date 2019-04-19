@@ -1,6 +1,6 @@
 \section{MAINTAINABILITY OPPORTUNITY TREE}
 \label{sec:opportunity_tree}
-Figure \ref{fig:opportunity_tree} provides an opportunity tree for Maintainability.   As with our other opportunity trees for reducing Cost, reducing Schedule, and improving Dependability aspects, it provides a checklist for systems engineers and developers to use in improving a system's Maintainability.
+Figure \ref{fig:opportunity_tree} provides an opportunity tree for Maintainability.   As with our other opportunity trees for reducing Cost, reducing Schedule, and improving Dependability aspects, it provides a checklist for systems engineers and developers to use in improving a system's maintainability.
 
 
 \begin{figure}[h]
@@ -49,7 +49,7 @@ Figure \ref{fig:opportunity_tree} provides an opportunity tree for Maintainabili
 
 
 \textbf{Anticipate Maintainability Needs: Maintainer Involvement.}
-Lack of maintainer involvement in system and software development often results in key Maintainability enablers being either neglected or implemented in incompatible ways.   It may take some effort to get the maintainers involved, as often they are stuck in a vicious circle and are too busy overcoming the Maintainability shortfalls caused by previous projects lacking maintainer involvement in their definition and development.
+Lack of maintainer involvement in system and software development often results in key maintainability enablers being either neglected or implemented in incompatible ways.   It may take some effort to get the maintainers involved, as often they are stuck in a vicious circle and are too busy overcoming the maintainability shortfalls caused by previous projects lacking maintainer involvement in their definition and development.
 
 \textbf{Evolution Information and Trend Analysis.}
 Often, the requirements for a system acquisition are determined by prioritizing the capabilities, and using a Cost as Independent Variable (CAIV) analysis to determine which capabilities fit within the available budget and are to be included in the Request for Proposal (RFP).   This unfortunately throws away valuable below-the-line information on the most likely directions of system evolution, often leading to a brittle point-solution architecture as the chosen solution.
@@ -59,7 +59,7 @@ Trend Analysis is another way to identify likely directions of system evolution.
 \textbf{Hotspot (Change Source) Analysis.} Common sources of change include user interface changes, device driver changes, external interface changes, and changes in Non-Developmental Items (NDIs).
 Many Commercial-Off-The-Shelf (COTS) NDI products have new releases every 8-12 months, and continue support for only the latest three releases.  In gathering data for a COTS-integration version of the COCOMO cost model, we found one large project entering maintenance with 120 COTS products, 55 of which were no longer supported \cite{Abts00cocots:a}.  Other NDIs are more volatile: for example, Amazon's cloud services are updated every 11 seconds.  Open-source NDIs vary widely on their change frequency.  Systems employing numerous COTS products, and NDIs may therefore have numerous changes, often becoming too expensive to maintain.
 
-\textbf{Design/Develop for Maintainability: Modularization Around Hotspots.} The 1979 Parnas paper, ``Designing Software for Ease of Extension and Contraction,'' \cite{parnas1979designing} and earlier Parnas papers identify this Maintainability strategy.   Common sources of change that have been encapsulated in modules will contain the change effects within the module rather than having them ripple across the other parts of the system.    Using this and related TRW data-driven strategies enabled large projects to perform maintenance changes at lower costs than development changes \cite{royce1998software}.   
+\textbf{Design/Develop for Maintainability: Modularization Around Hotspots.} The 1979 Parnas paper, ``Designing Software for Ease of Extension and Contraction,'' \cite{parnas1979designing} and earlier Parnas papers identify this maintainability strategy.   Common sources of change that have been encapsulated in modules will contain the change effects within the module rather than having them ripple across the other parts of the system.    Using this and related TRW data-driven strategies enabled large projects to perform maintenance changes at lower costs than development changes \cite{royce1998software}.   
 
 \textbf{Service Orientation; Set-Based Design.} Service-oriented loose coupling is a design principle that is applied to the services in order to ensure that the service contract is independent of the underlying service logic and implementation \cite{sundbo2000innovation}. Basically, the concept of loose coupling provided by a Service-Oriented Architecture (SOA) component is that it publishes a contract indicating that if it is furnished with a specified set of inputs, it will produce a specified set of outputs, without otherwise interacting with the user's environment \cite{boehm2008balancing,borges2004delving}.
 
