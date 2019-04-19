@@ -1,12 +1,12 @@
 \section{Software Quality Understanding by Analysis of Abundant Data (SQUAAD) Toolset}
 \label{sec:squaad}
 
-Software developers can prevent failures and disasters and reduce the total cost of ownership by putting more emphasis on improving software maintainability in their software development process.
+Software developers can prevent failures and disasters and reduce total ownership costs by putting more emphasis on improving software maintainability in their software development process.
 One way to improve software maintainability is to produce clean code while changing the software and to continuously assess and monitor code quality while the software is evolving \cite {mexim2015introduction}.
 
 Prior research has been focusing on the analysis of official releases of software to understand how its code quality evolves \cite{PINTO201559,tu2000evolution,ganpati2012comparative,d2008analysing,le2015empirical}.
 This approach gives an insight on change in code quality over the major milestones of software development, rather than how code quality evolves during software development process. 
-For example, a developer may unknowingly increase the amount of technical debt over a few commits. If that debt is not addressed quickly, it can impose extra cost.
+For example, a developer may unknowingly increase the amount of Technical Debt (TD) over a few commits. If that debt is not addressed quickly, it can impose extra cost.
 It gets even worse, if they leave the team without paying that debt.
 In another example, a developer may simply commit broken code to the repository.
 This will break the code for other contributors and slows down the development.
@@ -41,7 +41,7 @@ However, this approach for achieving scale and avoiding redundancy is not suitab
 	A recent study \cite{AlexandruSANER2017} declares the unavailability of the compiled versions as the main unresolved source for the manual effort in software evolution analysis.
 \end{itemize}
 
-In addition, some tools rely on a \textbf{specific environment} to run.
+In addition, some tools rely on a complex \textbf{environment} to run.
 This includes dynamic techniques that need an execution environment and static techniques with specific requirements.
 For example, SonarQube \cite{campbellsonarqube} requires deploying its own analysis server, generating a configuration file for each revision, executing the analysis, and fetching the results using SonarQube Api.
 %There is also a relative scarcity of commit-level empirical study on using complex program analysis techniques (e.g., building the software, running FindBugs on bytecodes, or running architecture recovery) on different modules, COTS tools with complex environments (e.g., SonarQube), and dynamic analysis techniques (e.g., rendering webpages or test-coverage).
@@ -81,7 +81,7 @@ Then it automatically
 6) runs various statistical analysis on software quality evolution.
 
 The entire analysis workflow is automated. As soon as the framework is configured for a subject system, we can run the represented analysis on that system and study its evolution.
-This full automation makes analysis conducted by SQUAAD replicable and addresses the problems of external validity \cite{Trautsch:2016:APE:2901739.2901753} of repository mining studies.
+This full automation makes analysis conducted by SQUAAD replicable and addresses a major threat (i.e., not being replicable) to the external validity of repository mining studies \cite{Trautsch:2016:APE:2901739.2901753}.
 We have also developed web interfaces to illustrate the evolution of different quality attributes and the impact of each developer on software quality.
 
 %We assessed the generalizability of my current lead-author paper results by extending the dataset used in those studies either in terms of number of subject systems and organizations, or conducting commit-level analysis instead of release-level.
@@ -100,13 +100,13 @@ Our result showed that employing multiple security metrics together can reveal p
 
 %In a follow up work , we extended our original dataset to include revisions committed in 2017/18 of those 38 Apache systems, as well as 30 new open-source systems from Google and Netflix, comprising a total of 37838 distinct revisions and more than 1.5 billion lines of code.
 In a follow-up study \cite{Behnamghader2018esem}, we extended our original dataset to include 30 new subject systems from Google and Netflix, as well as revisions committed in 2017 and 2018 of 38 Apache systems of the original dataset.
-The extended dataset comprises more than 37k distinct software revisions and more than 1.5 billion lines of code.
+The extended dataset comprises more than 37k analyzed distinct software revisions and more than 1.5 billion lines of code.
 We replicated the analysis mentioned above on the new dataset and extended it to reach the maximum commit compilability (97.7\% for Apache, 99.0\% for Google, and 93.9\% for Netflix) and identify all uncompilable commits that are caused by a developer's fault.
 We quantitatively analyzed the reasons for introducing compile errors and proposed a model to detect the uncompilable commits in a post-development analysis based on the meta-date of the commits (i.e., time, message, and committer) and without considering code artifacts.
 Then we analyzed all compilable commits to understand the difference between affiliated and external developers of each organization in terms of impacting different quality attributes. 
 For example, our analysis shows that although there is no difference between affiliated and external developers in terms of changing the size of the software, external developers of Netflix and affiliated developers of Google have higher ratio of compilable commits.
 
-Tools such as SQUAAD can enable organizations to continuously monitor their sources of technical debt and remove them quickly during development, rather than pay for them with interest during maintenance. We are creating versions for some government support organizations to aid in their monitoring and prioritization of technical debt and its removal. 
+Tools such as SQUAAD can enable organizations to continuously monitor their sources of TD and remove them quickly during development, rather than pay for them with interest during maintenance. We are creating versions for some government support organizations to aid in their monitoring and prioritization of TD and its removal. 
 
 %XXX Focusing on a module helps better understanding of heterogeneous projects that are developed in different programming languages and/or by different development teams.
 %For example Apache Avro\footnote{https://github.com/apache/avro} is implemented in more than 10 programing languages in the same repository.
